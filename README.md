@@ -1,1 +1,1 @@
-Designed and built a custom STM32-based CanSat telemetry system with GPS, IMU, environmental sensors, battery monitoring, and SD card storage. Implemented embedded software for real-time data acquisition, telemetry logging, and mission analysis.
+Design and build a professional STM32-based avionics PCB for small aerospace vehicles.
