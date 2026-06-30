@@ -32,6 +32,8 @@ Programming, debugging, and serial communication are separate subsystems. Can te
 ### Problem
 When testing BNO085 position recognition (roll, pitch, yaw), the change in angle is inacurate. When turned 90 degrees, the serial output showed a 180 degrees change.
 
+![Image](../Images/Screenshot 2026-06-29 194153.png)
+
 ### Investigation
 - Checked the COM port.
 - Tested the USB cable.
