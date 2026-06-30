@@ -2,7 +2,7 @@
 
 ---
 
-## June 29, 2026
+## June 15, 2026
 
 ### Problem
 The STM32 uploaded successfully, but the Serial Monitor showed no output.
@@ -17,7 +17,8 @@ The STM32 uploaded successfully, but the Serial Monitor showed no output.
 The USB serial connection was not configured correctly.
 
 ### Solution
-Configured the correct USB serial interface and verified communication with a simple test program before reconnecting the sensors.
+- Bought a ST-Link
+- Configured the correct USB serial interface and verified communication with a simple test program before reconnecting the sensors.
 
 ### Lesson Learned
-Programming, debugging, and serial communication are separate subsystems. Test them independently.
+Programming, debugging, and serial communication are separate subsystems. Can test them independently.
