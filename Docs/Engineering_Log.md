@@ -23,8 +23,6 @@ The USB serial connection was not configured correctly.
 ### Lesson Learned
 Programming, debugging, and serial communication are separate subsystems. Can test them independently.
 
-# Engineering Log
-
 ---
 
 ## June 26, 2026
@@ -35,13 +33,12 @@ When testing BNO085 position recognition (roll, pitch, yaw), the change in angle
 ![Image](../Images/problem2.png)
 
 ### Investigation
-- Checked the COM port.
-- Tested the USB cable.
-- Verified `Serial.begin(115200)`.
-- Ran a simple Blink sketch.
+- 
 
 ### Root Cause
-The USB serial connection was not configured correctly.
+
+### Lesson Learned
+
 
 ### Solution
 Configured the correct USB serial interface and verified communication with a simple test program before reconnecting the sensors.
