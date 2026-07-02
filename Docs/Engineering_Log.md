@@ -28,23 +28,32 @@ Programming, debugging, and serial communication are separate subsystems. Can te
 ## June 26, 2026
 
 ### Problem
-When testing BNO085 position recognition (roll, pitch, yaw), the change in angle is inacurate. When turned 90 degrees, the serial output showed a 180 degrees change.
+When testing the BNO085 orientation output (roll, pitch, and yaw), a 90° physical rotation sometimes resulted in an incorrect 180° change in the reported orientation.
 
 ![Image](../Images/problem2.png)
 
 ### Investigation
-- Serial output quaternion values to determine whether the angle conversion is wrong or something else.
+- Verified the quaternion-to-Euler angle conversion equations.
+- Printed the raw quaternion values to determine whether the problem originated from the sensor or from the conversion equations.
+- Compared the quaternion output with the accelerometer output.
 
 ### Root Cause
 ![Image](../Images/problem3.png)
-- The rotation vector values and the accelerometer values match exactly. Meaning the quaternion is measured incorrectly.
-- Were missing these two lines of code:
-    // if (bno08x.getSensorEvent(&sensorValue))
-    // if (sensorValue.sensorId == SH2_ACCELEROMETER)
+- The BNO085 was functioning correctly. However, the code was reading the rotationVector data without first verifying that the current sensor event was actually a SH2_ROTATION_VECTOR event. As a result, accelerometer data was sometimes interpreted as quaternion data, producing invalid orientation values.
 
 ### Solution
-Added those lines of code, tested sensor with different output frequencies (10Hz, 5Hz).
+Added event-type checking before reading each sensor report.
 
+```cpp
+if (bno08x.getSensorEvent(&sensorValue)) {
+
+    if (sensorValue.sensorId == SH2_ROTATION_VECTOR) {
+        ...
+    }
+
+}
+```
 ### Lesson Learned
-- BNO085 library requires to first determine if new data needs to be read, then see if it matches the data type you want.
-- Each sensor can have their individual output time, which is an engineering decision to make.
+- BNO085 uses an event-driven interface, so it first determines whether a new event has been received before processing it.
+- Always check `sensorValue.sensorId` before reading the sensor data.
+- Different sensor reports may have different output rates, so they should not be expected to arrive in a fixed order.
