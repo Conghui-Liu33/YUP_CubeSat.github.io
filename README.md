@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project is a custom STM32-based avionics board for a CanSat-style flight computer.
+I'm designing a modular STM32 avionics board for small aerospace vehicles.
 
 ![Prototype](Images/breadboard.jpg)
 
