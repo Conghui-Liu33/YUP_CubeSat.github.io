@@ -59,37 +59,33 @@ if (bno08x.getSensorEvent(&sensorValue)) {
 ## July 15, 2026
 
 ### Problem
-GPS output shows random simbols.
-
-![Image](../Images/problem2.png)
+GPS outputs random simbols rather than readable data.
+![Image](../Images/problem4.png)
 
 ### Investigation
-- Verified the quaternion-to-Euler angle conversion equations.
-- Printed the raw quaternion values to determine whether the problem originated from the sensor or from the conversion equations.
-- Compared the quaternion output with the accelerometer output.
+- Verified TX/RX wiring between the GPS module and the STM32.
+- Verified the STM32 UART pin assignments.
+- Tested multiple UART baud rates (9600, 38400, 57600, and 115200).
+- Confirmed that 115200 baud produced valid NMEA sentences.
 
 ### Root Cause
-![Image](../Images/problem3.png)
-- The BNO085 was functioning correctly. However, the code was reading the rotationVector data without first verifying that the current sensor event was actually a SH2_ROTATION_VECTOR event. As a result, accelerometer data was sometimes interpreted as quaternion data, producing invalid orientation values.
+- The UART baud rate configured on the STM32 did not match the GPS module's UART baud rate. As a result, the STM32 sampled the incoming bits at incorrect times, producing corrupted characters.
 
 ### Solution
-Added event-type checking before reading each sensor report.
+Configured the STM32 UART to use the same baud rate (115200 baud) as the GPS module.
 
 ```cpp
-if (bno08x.getSensorEvent(&sensorValue)) {
-
-    if (sensorValue.sensorId == SH2_ROTATION_VECTOR) {
-        ...
-    }
-
+void setup() {
+  Serial.begin(115200);
+  gpsSerial.begin(115200);
+  delay(2000);
+}
+void loop() {
+  while (gpsSerial.available()) {
+    Serial.write(gpsSerial.read());
+  }
 }
 ```
 ### Lesson Learned
-- BNO085 uses an event-driven interface, so it first determines whether a new event has been received before processing it.
-- Always check `sensorValue.sensorId` before reading the sensor data.
-- Different sensor reports may have different output rates, so they should not be expected to arrive in a fixed order.
-
-### Lesson Learned
-- BNO085 uses an event-driven interface, so it first determines whether a new event has been received before processing it.
-- Always check `sensorValue.sensorId` before reading the sensor data.
-- Different sensor reports may have different output rates, so they should not be expected to arrive in a fixed order.
+- For UART communication, the receiver and transmitter need to have the same transimission rate in order for the data to be interpreted correctly.
+- Some GPS modules output both human-readable NMEA messages and binary UBX messages. Binary data appears as random symbols in a serial terminal because it is intended for machine communication rather than human reading.
