@@ -53,6 +53,42 @@ if (bno08x.getSensorEvent(&sensorValue)) {
 
 }
 ```
+
+---
+
+## July 15, 2026
+
+### Problem
+GPS output shows random simbols.
+
+![Image](../Images/problem2.png)
+
+### Investigation
+- Verified the quaternion-to-Euler angle conversion equations.
+- Printed the raw quaternion values to determine whether the problem originated from the sensor or from the conversion equations.
+- Compared the quaternion output with the accelerometer output.
+
+### Root Cause
+![Image](../Images/problem3.png)
+- The BNO085 was functioning correctly. However, the code was reading the rotationVector data without first verifying that the current sensor event was actually a SH2_ROTATION_VECTOR event. As a result, accelerometer data was sometimes interpreted as quaternion data, producing invalid orientation values.
+
+### Solution
+Added event-type checking before reading each sensor report.
+
+```cpp
+if (bno08x.getSensorEvent(&sensorValue)) {
+
+    if (sensorValue.sensorId == SH2_ROTATION_VECTOR) {
+        ...
+    }
+
+}
+```
+### Lesson Learned
+- BNO085 uses an event-driven interface, so it first determines whether a new event has been received before processing it.
+- Always check `sensorValue.sensorId` before reading the sensor data.
+- Different sensor reports may have different output rates, so they should not be expected to arrive in a fixed order.
+
 ### Lesson Learned
 - BNO085 uses an event-driven interface, so it first determines whether a new event has been received before processing it.
 - Always check `sensorValue.sensorId` before reading the sensor data.
