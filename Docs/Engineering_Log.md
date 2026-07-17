@@ -102,8 +102,14 @@ void loop() {
 ## July 17, 2026
 ### Problem
 SD card initilaization failed
+![Image](../Images/problem5.png)
 
 ### Investigation
+- Checked wiring and pin assignments.
+- Possibly 128GB storage is too big. May want to try 8GB-32GB SDcards.
+- SD card type could be wrong.
+- Tried another SD card. Still did not work.
+
 ### Root Cause
 ### Solution
 ### Lesson Learned
