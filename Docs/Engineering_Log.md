@@ -1,6 +1,14 @@
 # Engineering Log
 
 ---
+## June 15, 2026
+### Problem
+### Investigation
+### Root Cause
+### Solution
+### Lesson Learned
+
+---
 
 ## June 15, 2026
 
@@ -89,3 +97,13 @@ void loop() {
 ### Lesson Learned
 - For UART communication, the receiver and transmitter need to have the same transimission rate in order for the data to be interpreted correctly.
 - Some GPS modules output both human-readable NMEA messages and binary UBX messages. Binary data appears as random symbols in a serial terminal because it is intended for machine communication rather than human reading.
+
+---
+## July 17, 2026
+### Problem
+SD card initilaization failed
+
+### Investigation
+### Root Cause
+### Solution
+### Lesson Learned
