@@ -111,5 +111,10 @@ SD card initilaization failed
 - Tried another SD card. Still did not work.
 
 ### Root Cause
+- The Sd card adapter I used (HiLetgo/Catalex-style 6-pin SPI MicroSD module with level shifters) reqires 5V to power.
+
 ### Solution
+- Switched from 3.3V to 5V
+
 ### Lesson Learned
+- All components in a circuit has dropout voltage. So the input voltage has to be greater than the wanted output voltage (3.3V). Therefore we need to power the SD module with the 5V instead.
