@@ -1,1 +1,12 @@
+## What my PCB need to include:
+- STM32 MCU
+- Battery powered PCB or external battery connector&regulator
+- BNO085 chip
+- BME280 chip
+- connector for GPS
+- SD module
+- debugging USB
+- LED 
+- Small size
+
 
