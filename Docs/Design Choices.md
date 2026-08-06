@@ -13,14 +13,20 @@
 - SPI interface for SD
 
 ## Hardware components
-- STM32F411CEU6
-- BNO085
-- BME280
-- MicroSD socket
 - USB-C connector
 - Battery connector
-- LDO regulator
+- LDO voltage regulator
 - Power LED
 - Status LED
-- SWD header
+- Serial Wire Debug (SWD) header for STM32
 - Boot/Reset buttons
+- Decupling Capacitors
+- ADC (STM32 has one built in?)
+
+Resistors
+-LED current limiting resistor
+-I2C pull-up resistors
+-USB resistors (if USB-C)
+-BOOT resistor
+-RESET pull-up
+-Battery divider
