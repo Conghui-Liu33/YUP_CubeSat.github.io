@@ -18,9 +18,11 @@
 - Gyrosope (100Hz)
 - Accelerometer (100Hz)
 
-- Chose the same sampling rate (100Hz) for all BNO085 sensors to simplify data logging/anlysis and plotting.
-- The BNO085 chip contains integrated sensor fusion, which internaly calculates the linear acceleration and rotation vectors and outputs those data. This is one of the main factor why I chose this chip.
-- The current draw depends on sensor sampling rates and enviormental conditions.
+Chose the same sampling rate (100Hz) for all BNO085 sensors to simplify data logging/anlysis and plotting.\
+
+The BNO085 chip contains integrated sensor fusion, which internaly calculates the linear acceleration and rotation vectors and outputs those data. This is one of the main factor why I chose this chip.\
+
+The current draw depends on sensor sampling rates and enviormental conditions.
 
 
 
