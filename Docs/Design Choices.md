@@ -35,5 +35,7 @@ This is used as an estimated typical current, rather than an exact value.
 A guaranteed maximum operating current for this specific configuration is not provided, so additional design margin will be included when sizing the power supply.
 Estimation: 18 mA
 
+![Image](../Images/BME280_1.png)
+
 
 
