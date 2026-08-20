@@ -22,7 +22,13 @@ Chose the same sampling rate (100Hz) for all BNO085 sensors to simplify data log
 
 The BNO085 chip contains integrated sensor fusion, which internaly calculates the linear acceleration and rotation vectors and outputs those data. This is one of the main factor why I chose this chip.\
 
-The current draw depends on sensor sampling rates and enviormental conditions.
+The current draw depends on sensor sampling rates and enviormental conditions.\
+
+## Calculations
+BNO085 Typical Current Draw estimated using 100Hz Sensor fusion data on the Power Consumption Table:\
+3.5mA VDDIO + 7.5mA VDD = 11mA\
+
+Worst Case current draw is unknown for this specific sensor configuration, yet a good estimate would be the 30% higher than the typical current draw.\
 
 
 
