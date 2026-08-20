@@ -10,3 +10,9 @@
 - 3.3V output
 - Calculated load's maximum current draw (must exceed __mA)
 
+## BNO085 Sensor sampling rate choices
+![Image](../Images/BNO085_1)
+![Image](../Images/BNO085_2)
+- Linear Acceleration
+- Rotation Vector
+
