@@ -36,20 +36,23 @@ A guaranteed maximum operating current for this specific configuration is not pr
 Estimation: 18 mA
 
 ## BME280 Power Consumption
-
+![Image](../Images/BME280_1.png)
 ### Configuration
-
 * Pressure: **50 Hz, ×4 oversampling**
 * Temperature: **50 Hz, ×1 oversampling**
 * Humidity: **1 Hz, ×1 oversampling**
 
 ### Average Current Calculation
+![Image](../Images/BME280_2.png)
 
-Datasheet values:
+Measurement Time
+50 Hz → 1 / 50 = 20 ms per measurement
 
-* Temperature current = 350 µA
-* Pressure current = 714 µA
-* Humidity current = 340 µA
+t_measure = 1.25 + 2.3(1) + [2.3(4) + 0.575]
+          = 13.325 ms
+
+13.325 ms < 20 ms → 50 Hz works
+
 
 **Pressure + Temperature @ 50 Hz**
 
@@ -85,8 +88,6 @@ IAVG = 348.7 + 0.85
 * **Highest listed typical active current:** ~0.714 mA
 * **Design allowance:** ~1 mA
 
-
-![Image](../Images/BME280_1.png)
 
 
 
