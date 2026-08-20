@@ -28,7 +28,7 @@ The current draw depends on sensor sampling rates and enviormental conditions.\
 BNO085 Typical Current Draw estimated using 100Hz Sensor fusion data on the Power Consumption Table:\
 3.5mA VDDIO + 7.5mA VDD = 11mA\
 
-Worst Case current draw is unknown for this specific sensor configuration, yet a good estimate would be the 30% higher than the typical current draw.\
+Worst Case current draw is unknown for this specific sensor configuration, yet a good estimate(conservative design margin) would be the 30% higher than the typical current draw.\
 
 
 
