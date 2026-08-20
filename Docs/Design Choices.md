@@ -11,8 +11,8 @@
 - Calculated load's maximum current draw (must exceed __mA)
 
 ## BNO085 Sensor sampling rate choices
-![Image](../Images/BNO085_1)
-![Image](../Images/BNO085_2)
+![Image](../Images/BNO085_1.png)
+![Image](../Images/BNO085_2.png)
 - Linear Acceleration
 - Rotation Vector
 
