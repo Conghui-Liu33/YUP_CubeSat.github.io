@@ -45,13 +45,13 @@ Estimation: 18 mA
 ### Average Current Calculation
 ![Image](../Images/BME280_2.png)
 
-Measurement Time
+Measurement Time:
 50 Hz → 1 / 50 = 20 ms per measurement
 
 t_measure = 1.25 + 2.3(1) + [2.3(4) + 0.575]
           = 13.325 ms
 
-13.325 ms < 20 ms → 50 Hz works
+Thus: 13.325 ms < 20 ms → 50 Hz works
 
 
 **Pressure + Temperature @ 50 Hz**
