@@ -18,17 +18,22 @@
 - Gyrosope (100Hz)
 - Accelerometer (100Hz)
 
-Chose the same sampling rate (100Hz) for all BNO085 sensors to simplify data logging/anlysis and plotting.\
+Choose the same report rate (100 Hz) for all selected BNO085 outputs to simplify data logging, analysis, and plotting.
 
-The BNO085 chip contains integrated sensor fusion, which internaly calculates the linear acceleration and rotation vectors and outputs those data. This is one of the main factor why I chose this chip.\
+The BNO085 chip contains integrated sensor fusion, which internaly calculates the linear acceleration and rotation vectors and outputs those data. This is one of the main factor why I chose this chip.
 
-The current draw depends on sensor sampling rates and enviormental conditions.\
+The current draw depends on sensor sampling rates and enviormental conditions.
 
 ## Calculations
-BNO085 Typical Current Draw estimated using 100Hz Sensor fusion data on the Power Consumption Table:\
-3.5mA VDDIO + 7.5mA VDD = 11mA\
+Typical Current Estimate:
+The BNO085 datasheet provides typical power consumption measurements for representative sensor configurations. The closest configuration to the intended operation is 6/9-axis sensor fusion at 100 Hz: 
+VDDIO: 3.5 mA
+VDD: 7.5 mA
+Since both rails will be supplied by the 3.3 V regulator: I=3.5+7.5=11 mA
+This is used as an estimated typical current, rather than an exact value.
 
-Worst Case current draw is unknown for this specific sensor configuration, yet a good estimate(conservative design margin) would be the 30% higher than the typical current draw.\
+A guaranteed maximum operating current for this specific configuration is not provided, so additional design margin will be included when sizing the power supply.
+Estimation: 18 mA
 
 
 
