@@ -17,16 +17,19 @@ Using a 3.7V Lipo battery means that voltage supply drops throughout discharge, 
 ### Calculations
 ![Image](../Images/Regulator_3.png)
 
-- Duty Cycle\
-D = (Vout - Vin) / Vout\
-D = (3.3 - 3.0) / 3.3\
+Duty Cycle
+```text
+D = (Vout - Vin) / Vout
+D = (3.3 - 3.0) / 3.3
 D = 0.091 = 9.1%
-
-- Peak Inductor Current\
+```
+Peak Inductor Current
+```text
 Ipeak = Iout / [η(1-D)] + (Vin × D) / (2 × f × L)\
-Ipeak = 0.306 / [0.9(1-0.091)] + (3.0 × 0.091) / [2 × 2.1MHz × 0.47µH]\
-Ipeak ≈ 0.374 + 0.138\
+Ipeak = 0.306 / [0.9(1-0.091)] + (3.0 × 0.091) / [2 × 2.1MHz × 0.47µH]
+Ipeak ≈ 0.374 + 0.138
 Ipeak ≈ 0.512 A
+```
 
 ## BNO085 Sensor sampling rate choices
 ![Image](../Images/BNO085_1.png)
