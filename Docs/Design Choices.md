@@ -5,6 +5,8 @@
 - Connector type need to match pcb
 - Safe
 
+Using a 3.7V Lipo battery means that voltage supply drops throughout discharge, ultimately would drop close to or below 3.3V. Thus, we need to use a buck-boost regualtor to get a stable 3.3V output.
+
 # Chosing a Regualtor
 ## requirements
 - 3.3V output
