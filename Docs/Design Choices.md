@@ -13,6 +13,8 @@ Using a 3.7V Lipo battery means that voltage supply drops throughout discharge, 
 - Calculated load's maximum current draw (must exceed __mA)
 
 ![Image](../Images/Regulator_1.png)
+![Image](../Images/Regulator_2.png)
+### Calculations
 
 
 
