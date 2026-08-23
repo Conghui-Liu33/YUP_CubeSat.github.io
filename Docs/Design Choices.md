@@ -1,3 +1,5 @@
+chat link: https://chatgpt.com/share/6a8b77ca-a5ec-83e8-9e69-0145bb34bca4
+
 # Chosing a Battery
 ## requirements
 - Run time at least 30min
