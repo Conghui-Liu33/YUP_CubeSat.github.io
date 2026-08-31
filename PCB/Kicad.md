@@ -3,4 +3,4 @@ Version 2 PCB:
 Schematic: ![Image](../Images/FCPCB_V2_Sch.pdf)
 
 Version 1 PCB had incorect wiring at U4
-
+![Image](../Images/PCB_3.png)
